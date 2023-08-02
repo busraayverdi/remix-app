@@ -1,10 +1,7 @@
 import { Link } from "@remix-run/react";
 
 export default function ProductCard({ product }) {
-  debugger
-  console.log(product)
   const variant = product.price;
-console.log(variant)
   return (
     <section className="overflow-hidden bg-white rounded-lg shadow:md hover:shadow-lg w-80">
       <Link to={`/products/${product.code}`}>

@@ -9,7 +9,6 @@ import {
 
 import Layout from "./layouts";
 import styles from "~/styles/app.css";
-
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
  }
@@ -34,7 +33,7 @@ export function links() {
    </Document>
    );
  }
- 
+
  function Document({ children }) {
   return (
    <html lang="en">
@@ -48,12 +47,14 @@ export function links() {
  }
  
  export function ErrorBoundary({ error }) {
+  debugger
+  console.log(error)
   return (
    <Document>
     <Layout>
      <div className="text-red-500">
       <h1>Error</h1>
-      <p>{error.message}</p>
+      <p>{error?.message}</p>
      </div>
     </Layout>
    </Document>
