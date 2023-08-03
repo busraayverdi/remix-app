@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import axios from "axios";
-import ProductCard from "~/components/product-cards";
+import ProductDetailCard from "~/components/product-detail-cards";
 
 export const loader = async ({params}) => {
   debugger
   const { code } = params;
-  let products = [];
   let nextUrl = `https://mocki.io/v1/1a1fb542-22d1-4919-914a-750114879775?code=${code}`;
 
   const response = await axios.get(nextUrl);
@@ -22,7 +21,7 @@ export default function ProductRoute() {
 
   return (
     <div>
-      <ProductCard key={data.code} product={data} />
+      <ProductDetailCard key={data.code} product={data} />
     </div>
   );
 }

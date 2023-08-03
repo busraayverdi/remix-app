@@ -3,7 +3,6 @@ import { json } from "@remix-run/node";
 import axios from "axios";
 import { useLoaderData } from "@remix-run/react";
 import ProductCard from "~/components/product-cards"; 
-//import  Logo  from "~/../../public/logo.svg";
 
 export const loader = async () => {
   let horizontalProducts = [];

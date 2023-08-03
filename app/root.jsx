@@ -12,7 +12,7 @@ import styles from "~/styles/app.css";
 export function links() {
   return [{ rel: "stylesheet", href: styles }];
  }
- 
+
  export function meta() {
   return {
    charset: "utf-8",
