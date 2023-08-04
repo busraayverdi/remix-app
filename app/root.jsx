@@ -16,7 +16,7 @@ export function links() {
  export function meta() {
   return {
    charset: "utf-8",
-   title: "Medusa Remix StoreFront",
+   title: "Remix StoreFront",
    viewport: "width=device-width,initial-scale=1",
    };
  }
