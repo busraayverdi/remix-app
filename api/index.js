@@ -178,11 +178,11 @@ function Navbar() {
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)("div", { className: "space-x-4", children: [
       {
-        label: "Products",
+        label: "\xDCr\xFCnler",
         url: "/products"
       },
       {
-        label: "About",
+        label: "Hakk\u0131nda",
         url: "/about"
       }
     ].map((link, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime3.jsxDEV)(import_react2.NavLink, { to: link.url, className: "navlink", children: link.label }, index, !1, {
@@ -264,7 +264,7 @@ function Layout({ children }) {
 }
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-7JYXMZ7Y.css";
+var app_default = "/build/_assets/app-WHTNJK5S.css";
 
 // app/root.jsx
 var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime");
@@ -664,20 +664,24 @@ function ProductsIndexRoute() {
     fileName: "app/routes/products/index.jsx",
     lineNumber: 25,
     columnNumber: 5
-  }, this));
+  }, this)), [activeindex, setActiveIndex] = (0, import_react8.useState)(0);
   return /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(import_jsx_dev_runtime9.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
       import_react10.Carousel,
       {
-        className: "rounded-xl",
+        className: "rounded-xl mt-5",
         numberOfScreens: horizontalProducts.length,
         prevArrow: ({ handlePrev }) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
           import_react10.IconButton,
           {
             variant: "text",
-            color: "white",
+            color: "black",
             size: "lg",
-            onClick: handlePrev,
+            onClick: () => {
+              setActiveIndex(
+                horizontalProducts.length == activeindex ? activeindex == 0 : horizontalProducts.length != activeindex && activeindex != 0 ? activeindex - 1 : activeindex == 0
+              );
+            },
             className: "!absolute top-2/4 left-4 -translate-y-2/4",
             children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
               "svg",
@@ -699,8 +703,8 @@ function ProductsIndexRoute() {
                   !1,
                   {
                     fileName: "app/routes/products/index.jsx",
-                    lineNumber: 54,
-                    columnNumber: 14
+                    lineNumber: 61,
+                    columnNumber: 15
                   },
                   this
                 )
@@ -709,8 +713,8 @@ function ProductsIndexRoute() {
               !1,
               {
                 fileName: "app/routes/products/index.jsx",
-                lineNumber: 46,
-                columnNumber: 12
+                lineNumber: 53,
+                columnNumber: 13
               },
               this
             )
@@ -719,8 +723,8 @@ function ProductsIndexRoute() {
           !1,
           {
             fileName: "app/routes/products/index.jsx",
-            lineNumber: 39,
-            columnNumber: 10
+            lineNumber: 37,
+            columnNumber: 11
           },
           this
         ),
@@ -728,9 +732,13 @@ function ProductsIndexRoute() {
           import_react10.IconButton,
           {
             variant: "text",
-            color: "white",
+            color: "black",
             size: "lg",
-            onClick: handleNext,
+            onClick: () => {
+              setActiveIndex(
+                horizontalProducts.length == activeindex + 1 ? activeindex == 0 : activeindex + 1
+              );
+            },
             className: "!absolute top-2/4 !right-4 -translate-y-2/4",
             children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
               "svg",
@@ -752,8 +760,8 @@ function ProductsIndexRoute() {
                   !1,
                   {
                     fileName: "app/routes/products/index.jsx",
-                    lineNumber: 78,
-                    columnNumber: 14
+                    lineNumber: 92,
+                    columnNumber: 15
                   },
                   this
                 )
@@ -762,8 +770,8 @@ function ProductsIndexRoute() {
               !1,
               {
                 fileName: "app/routes/products/index.jsx",
-                lineNumber: 70,
-                columnNumber: 12
+                lineNumber: 84,
+                columnNumber: 13
               },
               this
             )
@@ -772,48 +780,99 @@ function ProductsIndexRoute() {
           !1,
           {
             fileName: "app/routes/products/index.jsx",
-            lineNumber: 63,
-            columnNumber: 10
-          },
-          this
-        ),
-        children: horizontalProducts.map((product) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-          "img",
-          {
-            src: product.imageUrl,
-            alt: product.name
-          },
-          product.code,
-          !1,
-          {
-            fileName: "app/routes/products/index.jsx",
-            lineNumber: 88,
+            lineNumber: 70,
             columnNumber: 11
           },
           this
-        ))
+        ),
+        children: [
+          activeindex == 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+            "img",
+            {
+              src: "https://cdn.akakce.com/x/apple/iphone-13.jpg",
+              alt: "image 1",
+              className: "rounded mx-auto d-block w-60 my-5"
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/products/index.jsx",
+              lineNumber: 102,
+              columnNumber: 11
+            },
+            this
+          ),
+          activeindex == 1 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+            "img",
+            {
+              src: "https://cdn.akakce.com/x/apple/iphone-11-64-gb-aksesuarsiz-kutu.jpg",
+              alt: "image 2",
+              className: "rounded mx-auto d-block w-60 my-5"
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/products/index.jsx",
+              lineNumber: 109,
+              columnNumber: 11
+            },
+            this
+          ),
+          activeindex == 2 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+            "img",
+            {
+              src: "https://cdn.akakce.com/x/apple/iphone-13-pro-max.jpg",
+              alt: "image 3",
+              className: "rounded mx-auto d-block w-60 my-5"
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/products/index.jsx",
+              lineNumber: 116,
+              columnNumber: 11
+            },
+            this
+          ),
+          activeindex == 3 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+            "img",
+            {
+              src: "https://cdn.akakce.com/x/samsung/samsung-galaxy-m52.jpg",
+              alt: "image 2",
+              className: "rounded mx-auto d-block w-60 my-5"
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/products/index.jsx",
+              lineNumber: 123,
+              columnNumber: 11
+            },
+            this
+          )
+        ]
       },
       void 0,
-      !1,
+      !0,
       {
         fileName: "app/routes/products/index.jsx",
-        lineNumber: 34,
-        columnNumber: 6
+        lineNumber: 33,
+        columnNumber: 7
       },
       this
     ),
     /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { className: "grid grid-cols-2 gap-6 px-4 mt-8 md:px-12 lg:px-6 xl:px-4 xl:gap-6 2xl:px-24 2xl:gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-2", children: products.map((product) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(ProductCard, { product }, product.code, !1, {
       fileName: "app/routes/products/index.jsx",
-      lineNumber: 101,
+      lineNumber: 133,
       columnNumber: 11
     }, this)) }, void 0, !1, {
       fileName: "app/routes/products/index.jsx",
-      lineNumber: 99,
+      lineNumber: 131,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
     fileName: "app/routes/products/index.jsx",
-    lineNumber: 31,
+    lineNumber: 32,
     columnNumber: 5
   }, this);
 }
@@ -907,7 +966,7 @@ function AboutRoute() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-CCYETMOY.js", imports: ["/build/_shared/chunk-LQ53JVGW.js", "/build/_shared/chunk-7QMELC5A.js", "/build/_shared/chunk-FCC3XGIV.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-Y7WOH6A3.js", imports: ["/build/_shared/chunk-5UGQWJZS.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: "_index", index: void 0, caseSensitive: void 0, module: "/build/routes/_index-SGGFG3LY.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-K4ROG7DD.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/checkout": { id: "routes/checkout", parentId: "root", path: "checkout", index: void 0, caseSensitive: void 0, module: "/build/routes/checkout-K2UIDXER.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/$productId": { id: "routes/products/$productId", parentId: "root", path: "products/:productId", index: void 0, caseSensitive: void 0, module: "/build/routes/products/$productId-OHI7Q2ZL.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/index": { id: "routes/products/index", parentId: "root", path: "products", index: !0, caseSensitive: void 0, module: "/build/routes/products/index-ZMEGFYHV.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "a9d811d1", hmr: void 0, url: "/build/manifest-A9D811D1.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-CCYETMOY.js", imports: ["/build/_shared/chunk-LQ53JVGW.js", "/build/_shared/chunk-7QMELC5A.js", "/build/_shared/chunk-FCC3XGIV.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-HJTFWJ36.js", imports: ["/build/_shared/chunk-5UGQWJZS.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: "_index", index: void 0, caseSensitive: void 0, module: "/build/routes/_index-SGGFG3LY.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-K4ROG7DD.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/checkout": { id: "routes/checkout", parentId: "root", path: "checkout", index: void 0, caseSensitive: void 0, module: "/build/routes/checkout-K2UIDXER.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/$productId": { id: "routes/products/$productId", parentId: "root", path: "products/:productId", index: void 0, caseSensitive: void 0, module: "/build/routes/products/$productId-OHI7Q2ZL.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/index": { id: "routes/products/index", parentId: "root", path: "products", index: !0, caseSensitive: void 0, module: "/build/routes/products/index-4MAQHPEY.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "fe87a5d8", hmr: void 0, url: "/build/manifest-FE87A5D8.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !1, v2_normalizeFormMethod: !0, v2_routeConvention: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

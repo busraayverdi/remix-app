@@ -5,11 +5,11 @@ export default function Navbar() {
  const links = [
  
    {
-       label: "Products",
+       label: "Ürünler",
        url: "/products",
    },
    {
-       label: "About",
+       label: "Hakkında",
        url: "/about",
    },
   ];
