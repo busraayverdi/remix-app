@@ -264,7 +264,7 @@ function Layout({ children }) {
 }
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-WHTNJK5S.css";
+var app_default = "/build/_assets/app-6XPZ5KJQ.css";
 
 // app/root.jsx
 var import_jsx_dev_runtime5 = require("react/jsx-dev-runtime");
@@ -373,7 +373,7 @@ __export(productId_exports, {
   default: () => ProductRoute,
   loader: () => loader
 });
-var import_react5 = require("react"), import_node2 = require("@remix-run/node"), import_react6 = require("@remix-run/react"), import_axios = __toESM(require("axios"));
+var import_node2 = require("@remix-run/node"), import_react5 = require("@remix-run/react"), import_axios = __toESM(require("axios"));
 
 // app/components/product-detail-cards.jsx
 var import_ai = require("react-icons/ai"), import_react4 = require("react"), import_jsx_dev_runtime6 = require("react/jsx-dev-runtime");
@@ -524,42 +524,48 @@ function ProductDetailCard({ product }) {
 
 // app/routes/products/$productId.jsx
 var import_jsx_dev_runtime7 = require("react/jsx-dev-runtime"), loader = async ({ params }) => {
-  debugger;
-  let { code } = params, nextUrl = `https://mocki.io/v1/1a1fb542-22d1-4919-914a-750114879775?code=${code}`, response = await import_axios.default.get(nextUrl);
-  console.log(response);
-  let data = response.data.result;
-  return (0, import_node2.json)({ data });
+  let { productId } = params, nextUrl = `https://mock.akakce.dev/product${productId}.json`;
+  try {
+    let data = (await import_axios.default.get(nextUrl)).data;
+    return (0, import_node2.json)({ data });
+  } catch {
+    return (0, import_node2.json)({ error: "\xDCr\xFCn bilgisi y\xFCklenemedi. L\xFCtfen tekrar deneyin." });
+  }
 };
 function ProductRoute() {
-  let { data } = (0, import_react6.useLoaderData)();
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(ProductDetailCard, { product: data }, data.code, !1, {
+  let { data, error } = (0, import_react5.useLoaderData)();
+  return error ? /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("div", { children: error }, void 0, !1, {
     fileName: "app/routes/products/$productId.jsx",
-    lineNumber: 24,
+    lineNumber: 25,
+    columnNumber: 12
+  }, this) : /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime7.jsxDEV)(ProductDetailCard, { product: data }, data.code, !1, {
+    fileName: "app/routes/products/$productId.jsx",
+    lineNumber: 30,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/products/$productId.jsx",
-    lineNumber: 23,
+    lineNumber: 29,
     columnNumber: 5
   }, this);
 }
 
-// app/routes/products/index.jsx
+// app/routes/products/index.tsx
 var products_exports = {};
 __export(products_exports, {
   default: () => ProductsIndexRoute,
   loader: () => loader2
 });
-var import_react8 = require("react"), import_node3 = require("@remix-run/node"), import_axios2 = __toESM(require("axios")), import_react9 = require("@remix-run/react");
+var import_react7 = require("react"), import_node3 = require("@remix-run/node"), import_axios2 = __toESM(require("axios")), import_react8 = require("@remix-run/react");
 
 // app/components/product-cards.jsx
-var import_react7 = require("@remix-run/react"), import_ai2 = require("react-icons/ai"), import_jsx_dev_runtime8 = require("react/jsx-dev-runtime");
+var import_react6 = require("@remix-run/react"), import_ai2 = require("react-icons/ai"), import_jsx_dev_runtime8 = require("react/jsx-dev-runtime");
 function ProductCard({ product }) {
   let formattedNumber = product.price.toLocaleString("tr-TR", {
     style: "decimal",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
   });
-  return /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(import_jsx_dev_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("section", { className: "overflow-hidden bg-white rounded-xl shadow:md hover:shadow-lg w-96 ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(import_react7.Link, { to: `/products/${product.code}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("div", { className: "my-8 mx-8", children: [
+  return /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(import_jsx_dev_runtime8.Fragment, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("section", { className: "overflow-hidden bg-white rounded-xl shadow:md hover:shadow-lg w-96 ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)(import_react6.Link, { to: `/products/${product.code}`, children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("div", { className: "my-8 mx-8", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("button", { type: "button", class: "relative inline-flex items-center p-3 text-sm font-large text-center text-white rounded-xl ", children: /* @__PURE__ */ (0, import_jsx_dev_runtime8.jsxDEV)("div", { class: `absolute inline-flex items-center justify-center w-12 h-12 text-m font-bold text-white \r
             bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900`, children: `% ${product.dropRatio}` }, void 0, !1, {
       fileName: "app/components/product-cards.jsx",
@@ -650,229 +656,171 @@ function ProductCard({ product }) {
   }, this);
 }
 
-// app/routes/products/index.jsx
-var import_react10 = require("@material-tailwind/react"), import_jsx_dev_runtime9 = require("react/jsx-dev-runtime"), loader2 = async () => {
-  let horizontalProducts = [], products = [], nextUrl = "https://mocki.io/v1/59906f35-d5d5-40f7-8d44-53fd26eb3a05", data = (await import_axios2.default.get(nextUrl)).data.result;
-  return horizontalProducts = [...horizontalProducts, ...data == null ? void 0 : data.horizontalProducts], products = [...products, ...data.products], (0, import_node3.json)({ horizontalProducts, products });
+// app/routes/products/index.tsx
+var import_react9 = require("@material-tailwind/react"), import_jsx_dev_runtime9 = require("react/jsx-dev-runtime"), loader2 = async () => {
+  let horizontalProducts = [], products = [], nextUrl = "https://mock.akakce.dev/page.json";
+  try {
+    let data = (await import_axios2.default.get(nextUrl)).data;
+    horizontalProducts = [...horizontalProducts, ...data.horizontalProductList], products = [...products, ...data.productList], nextUrl = data.nextUrl;
+  } catch (error) {
+    throw console.error("API Call Error:", error.response ? error.response.data : error.message), new Error("Failed to fetch products from API.");
+  }
+  return (0, import_node3.json)({ horizontalProducts, products });
 };
 function ProductsIndexRoute() {
-  let { horizontalProducts, products } = (0, import_react9.useLoaderData)(), numberOfScreens = 1, slides = horizontalProducts.map((product) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("img", { src: product.imageUrl, alt: product.name }, void 0, !1, {
-    fileName: "app/routes/products/index.jsx",
-    lineNumber: 26,
-    columnNumber: 7
-  }, this) }, product.code, !1, {
-    fileName: "app/routes/products/index.jsx",
-    lineNumber: 25,
-    columnNumber: 5
-  }, this)), [activeindex, setActiveIndex] = (0, import_react8.useState)(0);
+  let { horizontalProducts, products } = (0, import_react8.useLoaderData)(), [activeIndex, setActiveIndex] = (0, import_react7.useState)(0), handlePrev = () => {
+    setActiveIndex((prevIndex) => prevIndex === 0 ? horizontalProducts.length - 1 : prevIndex - 1);
+  }, handleNext = () => {
+    setActiveIndex((prevIndex) => prevIndex === horizontalProducts.length - 1 ? 0 : prevIndex + 1);
+  };
   return /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(import_jsx_dev_runtime9.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-      import_react10.Carousel,
-      {
-        className: "rounded-xl mt-5",
-        numberOfScreens: horizontalProducts.length,
-        prevArrow: ({ handlePrev }) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-          import_react10.IconButton,
-          {
-            variant: "text",
-            color: "black",
-            size: "lg",
-            onClick: () => {
-              setActiveIndex(
-                horizontalProducts.length == activeindex ? activeindex == 0 : horizontalProducts.length != activeindex && activeindex != 0 ? activeindex - 1 : activeindex == 0
-              );
-            },
-            className: "!absolute top-2/4 left-4 -translate-y-2/4",
-            children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-              "svg",
-              {
-                xmlns: "http://www.w3.org/2000/svg",
-                fill: "none",
-                viewBox: "0 0 24 24",
-                strokeWidth: 2,
-                stroke: "currentColor",
-                className: "h-6 w-6",
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-                  "path",
-                  {
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
-                    d: "M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-                  },
-                  void 0,
-                  !1,
-                  {
-                    fileName: "app/routes/products/index.jsx",
-                    lineNumber: 61,
-                    columnNumber: 15
-                  },
-                  this
-                )
-              },
-              void 0,
-              !1,
-              {
-                fileName: "app/routes/products/index.jsx",
-                lineNumber: 53,
-                columnNumber: 13
-              },
-              this
-            )
-          },
-          void 0,
-          !1,
-          {
-            fileName: "app/routes/products/index.jsx",
-            lineNumber: 37,
-            columnNumber: 11
-          },
-          this
-        ),
-        nextArrow: ({ handleNext }) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-          import_react10.IconButton,
-          {
-            variant: "text",
-            color: "black",
-            size: "lg",
-            onClick: () => {
-              setActiveIndex(
-                horizontalProducts.length == activeindex + 1 ? activeindex == 0 : activeindex + 1
-              );
-            },
-            className: "!absolute top-2/4 !right-4 -translate-y-2/4",
-            children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-              "svg",
-              {
-                xmlns: "http://www.w3.org/2000/svg",
-                fill: "none",
-                viewBox: "0 0 24 24",
-                strokeWidth: 2,
-                stroke: "currentColor",
-                className: "h-6 w-6",
-                children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-                  "path",
-                  {
-                    strokeLinecap: "round",
-                    strokeLinejoin: "round",
-                    d: "M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                  },
-                  void 0,
-                  !1,
-                  {
-                    fileName: "app/routes/products/index.jsx",
-                    lineNumber: 92,
-                    columnNumber: 15
-                  },
-                  this
-                )
-              },
-              void 0,
-              !1,
-              {
-                fileName: "app/routes/products/index.jsx",
-                lineNumber: 84,
-                columnNumber: 13
-              },
-              this
-            )
-          },
-          void 0,
-          !1,
-          {
-            fileName: "app/routes/products/index.jsx",
-            lineNumber: 70,
-            columnNumber: 11
-          },
-          this
-        ),
-        children: [
-          activeindex == 0 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-            "img",
+    /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { className: "relative", children: [
+      /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { className: "flex overflow-hidden", children: horizontalProducts.map((product, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+        "div",
+        {
+          className: `transition-all duration-500 ease-in-out transform ${index === activeIndex ? "block" : "hidden"}`,
+          children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("img", { src: product.imageUrl, alt: product.name, className: "w-full" }, void 0, !1, {
+            fileName: "app/routes/products/index.tsx",
+            lineNumber: 52,
+            columnNumber: 15
+          }, this)
+        },
+        product.code,
+        !1,
+        {
+          fileName: "app/routes/products/index.tsx",
+          lineNumber: 47,
+          columnNumber: 13
+        },
+        this
+      )) }, void 0, !1, {
+        fileName: "app/routes/products/index.tsx",
+        lineNumber: 45,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+        import_react9.IconButton,
+        {
+          variant: "text",
+          color: "black",
+          size: "lg",
+          onClick: handlePrev,
+          className: "!absolute top-2/4 left-4 -translate-y-2/4",
+          children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+            "svg",
             {
-              src: "https://cdn.akakce.com/x/apple/iphone-13.jpg",
-              alt: "image 1",
-              className: "rounded mx-auto d-block w-60 my-5"
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              strokeWidth: 2,
+              stroke: "currentColor",
+              className: "h-6 w-6",
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+                "path",
+                {
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  d: "M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "app/routes/products/index.tsx",
+                  lineNumber: 73,
+                  columnNumber: 13
+                },
+                this
+              )
             },
             void 0,
             !1,
             {
-              fileName: "app/routes/products/index.jsx",
-              lineNumber: 102,
-              columnNumber: 11
-            },
-            this
-          ),
-          activeindex == 1 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-            "img",
-            {
-              src: "https://cdn.akakce.com/x/apple/iphone-11-64-gb-aksesuarsiz-kutu.jpg",
-              alt: "image 2",
-              className: "rounded mx-auto d-block w-60 my-5"
-            },
-            void 0,
-            !1,
-            {
-              fileName: "app/routes/products/index.jsx",
-              lineNumber: 109,
-              columnNumber: 11
-            },
-            this
-          ),
-          activeindex == 2 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-            "img",
-            {
-              src: "https://cdn.akakce.com/x/apple/iphone-13-pro-max.jpg",
-              alt: "image 3",
-              className: "rounded mx-auto d-block w-60 my-5"
-            },
-            void 0,
-            !1,
-            {
-              fileName: "app/routes/products/index.jsx",
-              lineNumber: 116,
-              columnNumber: 11
-            },
-            this
-          ),
-          activeindex == 3 && /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
-            "img",
-            {
-              src: "https://cdn.akakce.com/x/samsung/samsung-galaxy-m52.jpg",
-              alt: "image 2",
-              className: "rounded mx-auto d-block w-60 my-5"
-            },
-            void 0,
-            !1,
-            {
-              fileName: "app/routes/products/index.jsx",
-              lineNumber: 123,
+              fileName: "app/routes/products/index.tsx",
+              lineNumber: 65,
               columnNumber: 11
             },
             this
           )
-        ]
-      },
-      void 0,
-      !0,
-      {
-        fileName: "app/routes/products/index.jsx",
-        lineNumber: 33,
-        columnNumber: 7
-      },
-      this
-    ),
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/routes/products/index.tsx",
+          lineNumber: 58,
+          columnNumber: 9
+        },
+        this
+      ),
+      /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+        import_react9.IconButton,
+        {
+          variant: "text",
+          color: "black",
+          size: "lg",
+          onClick: handleNext,
+          className: "!absolute top-2/4 right-4 -translate-y-2/4",
+          children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+            "svg",
+            {
+              xmlns: "http://www.w3.org/2000/svg",
+              fill: "none",
+              viewBox: "0 0 24 24",
+              strokeWidth: 2,
+              stroke: "currentColor",
+              className: "h-6 w-6",
+              children: /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(
+                "path",
+                {
+                  strokeLinecap: "round",
+                  strokeLinejoin: "round",
+                  d: "M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                },
+                void 0,
+                !1,
+                {
+                  fileName: "app/routes/products/index.tsx",
+                  lineNumber: 96,
+                  columnNumber: 13
+                },
+                this
+              )
+            },
+            void 0,
+            !1,
+            {
+              fileName: "app/routes/products/index.tsx",
+              lineNumber: 88,
+              columnNumber: 11
+            },
+            this
+          )
+        },
+        void 0,
+        !1,
+        {
+          fileName: "app/routes/products/index.tsx",
+          lineNumber: 81,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, !0, {
+      fileName: "app/routes/products/index.tsx",
+      lineNumber: 44,
+      columnNumber: 7
+    }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)("div", { className: "grid grid-cols-2 gap-6 px-4 mt-8 md:px-12 lg:px-6 xl:px-4 xl:gap-6 2xl:px-24 2xl:gap-6 justify-items-center md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-2", children: products.map((product) => /* @__PURE__ */ (0, import_jsx_dev_runtime9.jsxDEV)(ProductCard, { product }, product.code, !1, {
-      fileName: "app/routes/products/index.jsx",
-      lineNumber: 133,
+      fileName: "app/routes/products/index.tsx",
+      lineNumber: 108,
       columnNumber: 11
     }, this)) }, void 0, !1, {
-      fileName: "app/routes/products/index.jsx",
-      lineNumber: 131,
+      fileName: "app/routes/products/index.tsx",
+      lineNumber: 106,
       columnNumber: 7
     }, this)
   ] }, void 0, !0, {
-    fileName: "app/routes/products/index.jsx",
-    lineNumber: 32,
+    fileName: "app/routes/products/index.tsx",
+    lineNumber: 42,
     columnNumber: 5
   }, this);
 }
@@ -900,7 +848,7 @@ var index_exports = {};
 __export(index_exports, {
   default: () => IndexRoute
 });
-var import_react11 = require("@remix-run/react"), import_jsx_dev_runtime11 = require("react/jsx-dev-runtime");
+var import_react10 = require("@remix-run/react"), import_jsx_dev_runtime11 = require("react/jsx-dev-runtime");
 function IndexRoute() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { children: /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("div", { className: "px-12 py-32 text-center text-gray-200 bg-gray-800", children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)("h1", { className: "text-5xl text-gray-100", children: "New arrivals are here" }, void 0, !1, {
@@ -914,7 +862,7 @@ function IndexRoute() {
       columnNumber: 5
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime11.jsxDEV)(
-      import_react11.Link,
+      import_react10.Link,
       {
         to: "/products",
         className: "inline-block px-6 py-2 mt-8 text-sm font-semibold text-gray-700 transition duration-300 bg-gray-100 rounded-md hover:bg-white hover:text-gray-900 hover:scale-110 color",
@@ -966,7 +914,7 @@ function AboutRoute() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-CCYETMOY.js", imports: ["/build/_shared/chunk-LQ53JVGW.js", "/build/_shared/chunk-7QMELC5A.js", "/build/_shared/chunk-FCC3XGIV.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-HJTFWJ36.js", imports: ["/build/_shared/chunk-5UGQWJZS.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: "_index", index: void 0, caseSensitive: void 0, module: "/build/routes/_index-SGGFG3LY.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-K4ROG7DD.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/checkout": { id: "routes/checkout", parentId: "root", path: "checkout", index: void 0, caseSensitive: void 0, module: "/build/routes/checkout-K2UIDXER.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/$productId": { id: "routes/products/$productId", parentId: "root", path: "products/:productId", index: void 0, caseSensitive: void 0, module: "/build/routes/products/$productId-OHI7Q2ZL.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/index": { id: "routes/products/index", parentId: "root", path: "products", index: !0, caseSensitive: void 0, module: "/build/routes/products/index-4MAQHPEY.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "fe87a5d8", hmr: void 0, url: "/build/manifest-FE87A5D8.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-JW6VT773.js", imports: ["/build/_shared/chunk-LQ53JVGW.js", "/build/_shared/chunk-7QMELC5A.js", "/build/_shared/chunk-FCC3XGIV.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-RESGAQFV.js", imports: ["/build/_shared/chunk-5UGQWJZS.js"], hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !0 }, "routes/_index": { id: "routes/_index", parentId: "root", path: "_index", index: void 0, caseSensitive: void 0, module: "/build/routes/_index-WDB7MHSK.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/about": { id: "routes/about", parentId: "root", path: "about", index: void 0, caseSensitive: void 0, module: "/build/routes/about-K4ROG7DD.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/checkout": { id: "routes/checkout", parentId: "root", path: "checkout", index: void 0, caseSensitive: void 0, module: "/build/routes/checkout-K2UIDXER.js", imports: void 0, hasAction: !1, hasLoader: !1, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/$productId": { id: "routes/products/$productId", parentId: "root", path: "products/:productId", index: void 0, caseSensitive: void 0, module: "/build/routes/products/$productId-LWVQOQ3M.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 }, "routes/products/index": { id: "routes/products/index", parentId: "root", path: "products", index: !0, caseSensitive: void 0, module: "/build/routes/products/index-V3YFNP7L.js", imports: ["/build/_shared/chunk-GVOPZ753.js"], hasAction: !1, hasLoader: !0, hasCatchBoundary: !1, hasErrorBoundary: !1 } }, version: "1d594b9b", hmr: void 0, url: "/build/manifest-1D594B9B.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var assetsBuildDirectory = "public\\build", future = { v2_dev: !1, unstable_postcss: !1, unstable_tailwind: !1, v2_errorBoundary: !0, v2_headers: !0, v2_meta: !1, v2_normalizeFormMethod: !0, v2_routeConvention: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
