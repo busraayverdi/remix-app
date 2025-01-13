@@ -4,6 +4,7 @@ import axios from "axios";
 import { useLoaderData } from "@remix-run/react";
 import ProductCard from "~/components/product-cards";
 import { IconButton } from "@material-tailwind/react";
+import ProductCarosel from "~/components/product-carosel";
 
 export const loader = async () => {
   let horizontalProducts: any = [];
@@ -49,7 +50,7 @@ export default function ProductsIndexRoute() {
               className={`transition-all duration-500 ease-in-out transform ${index === activeIndex ? "block" : "hidden"
                 }`}
             >
-              <img src={product.imageUrl} alt={product.name} className="w-full" />
+              <ProductCarosel product={product} />
             </div>
           ))}
         </div>
@@ -59,7 +60,7 @@ export default function ProductsIndexRoute() {
           variant="text"
           size="lg"
           onClick={handlePrev}
-          className="!absolute top-2/4 left-4 -translate-y-2/4"
+          className="!absolute top-2/4 left-4 -translate-y-2/4 p-0" // p-0 ile padding'i sıfırlıyoruz
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +82,7 @@ export default function ProductsIndexRoute() {
           variant="text"
           size="lg"
           onClick={handleNext}
-          className="!absolute top-2/4 right-4 -translate-y-2/4"
+          className="!absolute top-2/4 right-4 -translate-y-2/4 p-0" // p-0 ile padding'i sıfırlıyoruz
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
