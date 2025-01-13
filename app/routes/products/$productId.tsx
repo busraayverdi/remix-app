@@ -1,13 +1,14 @@
 import { json } from "@remix-run/node";
+import type { LoaderArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import axios from 'axios';
 import ProductDetailCard from "~/components/product-detail-cards";
 
 
-export const loader = async ({ params }) => {
+export const loader = async ({ params }: LoaderArgs) => {
   const { productId } = params;  // productId'yi params'dan alıyoruz
   // Burada productId'yi doğru şekilde kullandığınızdan emin olun
-  const nextUrl = `https://mock.akakce.dev/product${productId}.json`; 
+  const nextUrl = `https://mock.akakce.dev/product${productId}.json`;
 
   try {
     const response = await axios.get(nextUrl);
