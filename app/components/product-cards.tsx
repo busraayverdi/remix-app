@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 import { AiOutlineDoubleRight } from "react-icons/ai";
 
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product }: any) {
   const variant = product.price;
   const formattedNumber = variant.toLocaleString("tr-TR", {
     style: "decimal",
@@ -14,9 +14,9 @@ export default function ProductCard({ product }) {
       <section className="overflow-hidden bg-white rounded-xl shadow:md hover:shadow-lg w-96 ">
       <Link to={`/products/${product.code}`}>
         <div className="my-8 mx-8">
-          <button type="button" class="relative inline-flex items-center p-3 text-sm font-large text-center text-white rounded-xl ">
+          <button type="button" className="relative inline-flex items-center p-3 text-sm font-large text-center text-white rounded-xl ">
             
-            <div class="absolute inline-flex items-center justify-center w-12 h-12 text-m font-bold text-white 
+            <div className="absolute inline-flex items-center justify-center w-12 h-12 text-m font-bold text-white 
             bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">{`% ${product.dropRatio}`}</div>
           </button>
 
